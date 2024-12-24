@@ -1,0 +1,108 @@
+{% load static %}
+
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наши сотрудники</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'pages/styles.css' %}">
+  <link rel="icon" href="{% static 'pages/favicon.ico' %}">
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navigation-clean-button">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}">Клиника "Инсулай"</a>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav">
+            <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Навигация по сайту <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a href="{% url 'index' %}">Главная страница</a></li>
+                <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+                <li role="presentation"><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="navbar-text navbar-right actions">
+            {% if request.user.is_authenticated %}
+                <a class="navbar-link" href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a class="navbar-link login" href="{% url 'login' %}">Войти</a>
+                <a class="btn btn-default action-button" role="button" href="{% url 'register' %}">Зарегестрироваться</a>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <div id="content">
+    <div id="img-stack">
+      <img src="{% static 'images/doctor_1.jpg' %}" alt="" />
+    </div>
+    <div id="img-stack">
+      <img src="{% static 'images/doctor_2.jpg' %}" alt="" />
+    </div>
+    <div id="img-stack">
+      <img src="{% static 'images/doctor_3.jpg' %}" alt="" />
+    </div>
+
+    <div id="main-text">
+      <p id="heady-text">Наши сотрудники</p>
+      <br>Все наши сотрудники - высококвалифицированные и умелые специалисты, способные не только поставить корректный диагноз, но и порекомендовать грамотное лечение, которое обязательно вам поможет. Высококвалифицированный врач - это специалист с многолетним опытом и глубокими знаниями в медицинской сфере. Такие врачи обладают высоким уровнем профессионализма, постоянно совершенствуют свои навыки и следят за новейшими технологиями и методами лечения.</br>
+
+      <ul>
+        <li>1. Кальцев Василий Иванович, главный врач</li>
+        Ученая степень: доктор медицинских наук. Многократный лаурен медицинских премий, кавалер множества орденов за спасение жизней пациентов.
+
+        <li>2. Актанов Кай Арнхардович, врач-хирург</li>
+        Ученая степень: доктор медицинских наук, опыт работы более 40 лет. Неоднократно оперировал самые сложные случаи, заканчивая операции успешно.
+
+        <li>3. Савар Сергей Лапласович, врач-рентгенолог</li>
+        Ученая степень: кандидат медицинских наук, опыт работы более 20 лет. Автор новейшей методики обнаружения инфекций посредством ионных облучателей.
+
+        <li>4. Лунгу Виктор Анатольевич</li>
+        Ученая степень: доктор медицинских наук, опыт работы более 35 лет. Заслуженный и почетный член РАН.
+
+        <li>5. Коркинеева Анна Игоревна, врач-физиолог</li>
+        Ученая степень: кандидат медицинских наук, опыт работы более 30 лет. Опытный врач-физиолог, имеет множество наград за большой вклад в развитие физиотерапии и лечебно-физической культуры.
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="row"></div>
+      <div class="row">
+        <ul>
+          <li><a href="{% url 'index' %}">Главная страница</a></li>
+          <li><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+          <li><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+          <li><a href="https://minzdrav.gov.ru/documents">Наши документы</a></li>
+          <li><a href="#">Сотрудничество</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        Клиника "Инсулай" Компания зарегестрирована © 2024 Clinic "Insulai" - All rights reserved || Травму получил - в Инсулае её излечил!
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

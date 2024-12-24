@@ -1,0 +1,85 @@
+{% load static %}
+
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'pages/styles.css' %}">
+  <link rel="icon" href="{% static 'pages/favicon.ico' %}">
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navigation-clean-button">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}">Клиника "Инсулай"</a>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav">
+            <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Навигация по сайту <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a href="{% url 'index' %}">Главная страница</a></li>
+                <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+                <li role="presentation"><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="navbar-text navbar-right actions">
+            {% if request.user.is_authenticated %}
+                <a class="navbar-link" href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a class="navbar-link login" href="{% url 'login' %}">Войти</a>
+                <a class="btn btn-default action-button" role="button" href="{% url 'register' %}">Зарегестрироваться</a>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div id="main-text">
+      <p id="heady-text">Личный кабинет</p>
+      <br>Добро пожаловать в Ваш личный кабинет В нем вы можете посмотреть свою информацию о записях на приемы, консультации или операции. В случае отмены вашего посещения оно в скором времени будет убрано и из вашего личного кабинета.</br>
+      <br>Желаем Вам скорейшего выздоровления и восстановления!</br>
+      <br>ФИО пациента: {{ user.get_full_name }}<br>
+      <br>Почта для связи: {{ user.email }}<br>
+      <br>Консультации, операции, процедуры и тд.:<br>
+      <!-- Здесь можно выводить дополнительную информацию о пациенте -->
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="row"></div>
+      <div class="row">
+        <ul>
+          <li><a href="{% url 'index' %}">Главная страница</a></li>
+          <li><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+          <li><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+          <li><a href="https://minzdrav.gov.ru/documents">Наши документы</a></li>
+          <li><a href="#">Сотрудничество</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        Клиника "Инсулай" Компания зарегестрирована © 2024 Clinic "Insulai" - All rights reserved || Травму получил - в Инсулае её излечил!
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

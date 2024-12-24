@@ -1,0 +1,110 @@
+{% load static %}
+
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Клиника "Инсулай"</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'pages/styles.css' %}">
+  <link rel="icon" href="{% static 'pages/favicon.ico' %}">
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navigation-clean-button">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="{% url 'index' %}">Клиника "Инсулай"</a>
+              <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="nav navbar-nav">
+                  <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+                  <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Навигация по сайту <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                          <li role="presentation"><a href="{% url 'index' %}">Главная страница</a></li>
+                          <li role="presentation"><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+                          <li role="presentation"><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <p class="navbar-text navbar-right actions">
+                  {% if request.user.is_authenticated %}
+                      <a class="navbar-link" href="{% url 'logout' %}">Выйти</a>
+                  {% else %}
+                      <a class="navbar-link login" href="{% url 'login' %}">Войти</a>
+                      <a class="btn btn-default action-button" role="button" href="{% url 'register' %}">Зарегестрироваться</a>
+                  {% endif %}
+              </p>
+          </div>
+      </div>
+  </nav>
+  
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <div id="content">
+    <div id="img-stack">
+      <img src="{% static 'images/background.jpg' %}" alt="" />
+    </div>
+    <div id="img-stack">
+      <img src="{% static 'images/background_1.jpg' %}" alt="" />
+    </div>
+    <div id="img-stack">
+      <img src="{% static 'images/background_2.jpg' %}" alt="" />
+    </div>
+
+    <div id="main-text">
+      <p id="heady-text">Клиника "Инсулай"</p>
+      <br>Дивиз нашей клиники: травму получил - в Инсулае её излечил Именно наша клиника является передовым медицинским учреждением в городе. Именно наши специалисты являются компетентными и высококвалифицированными специалстами в своей области, что помогает нам эффективно функционировать и обслуживать пациентов.</br>
+      <br>В нашей клинике можно пройти самые разные процедуры и терапии, перед этим проконсультировавшись у высококласного специалиста, который обязательно вам поможет. В Инсулае можно также приобрести и медикоменты по рецепту врача.</br>
+      <br>Наши услуги представлены в следующем перечне:</br>
+      <ul>
+        <li>1. Врачебные консультации</li>
+        В поликлинике работают опытные специалисты различных профилей: терапевты, педиатры, хирурги, гинекологи и другие. Вы можете получить квалифицированную консультацию по любому вопросу своего здоровья.
+
+        <li>2. Диагностика заболеваний</li>
+        Поликлиники оборудованы современным оборудованием для проведения различных видов обследований: анализы крови, УЗИ, рентген и другие методы диагностики.
+
+        <li>3. Лечение и реабилитация</li>
+        После постановки диагноза в поликлинике вы можете получить назначенное лечение, а также рекомендации по реабилитации после болезни или травмы.
+
+        <li>4. Профилактические осмотры</li>
+        В поликлинике проводятся профилактические осмотры на ранних стадиях заболеваний, что помогает предотвратить их развитие или выявить на ранней стадии.
+
+        <li>5. Вакцинация</li>
+        Поликлиники предлагают услуги по вакцинации от различных инфекций, что помогает поддерживать иммунитет и предотвращать распространение опасных заболеваний.
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="row"></div>
+      <div class="row">
+        <ul>
+          <li><a href="{% url 'index' %}">Главная страница</a></li>
+          <li><a href="{% url 'aboutus' %}">Наши сотрудники</a></li>
+          <li><a href="{% url 'personalcab' %}">Личный кабинет</a></li>
+          <li><a href="https://minzdrav.gov.ru/documents">Наши документы</a></li>
+          <li><a href="#">Сотрудничество</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        Клиника "Инсулай" Компания зарегестрирована © 2024 Clinic "Insulai" - All rights reserved || Травму получил - в Инсулае её излечил!
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
